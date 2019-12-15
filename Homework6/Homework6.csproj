@@ -43,6 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlankBulb.cs" />
+    <Compile Include="BlankLei.cs" />
+    <Compile Include="ColourBulb.cs" />
+    <Compile Include="ColourLei.cs" />
+    <Compile Include="Colours.cs" />
+    <Compile Include="DataValiadation.cs" />
+    <Compile Include="FontColours.cs" />
+    <Compile Include="Lei.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
