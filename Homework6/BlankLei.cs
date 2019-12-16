@@ -17,32 +17,28 @@ namespace Homework6
             {
                 garland[i] = new BlankBulb(i);
             }
-
-
         }
 
-        public String getState()
+        public void GetState()
         {
             string state = "", temp;
-            int[] garState = turnState();
+            Boolean[] garState = turnState();
 
             for (int i = 0; i < garland.Length; i++)
             {
                 BlankBulb bl = garland[i];
-                if (garState[i] == 0)
+                if (!garState[i])
                 {
-                    temp = "Lamp #" + (i + 1) + " is turned off\n";
+                    temp = "is turned off";
                 }
                 else
                 {
-                    temp = "Lamp #" + (i + 1) + " is turned on\n";
+                    temp = "is turned on";
                 }
+                state = "Blank garland lamp #" + (garland[i].OrderNumber + 1) + "is " + temp + " now.\n";
+                Console.WriteLine(state);
 
-                state += temp;
             }
-
-
-            return state;
         }
     }
 }

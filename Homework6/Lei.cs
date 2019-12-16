@@ -9,29 +9,27 @@ namespace Homework6
         public abstract class Lei
         {
             public int bulbCount;
-            BlankBulb[] garlandBlank;
-            ColourBulb[] garlandColour;
-            public int[] garState;
+            public Boolean[] garState;
 
-            public int[] turnState()
+            public Boolean[] turnState()
             {
-                garState = new int[bulbCount];
-                int currentSec = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
-                int odd, even;
-
-                if ((currentSec % 10) % 2 == 0)
+                garState = new Boolean[bulbCount];
+                TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
+                int currentSec = (int)(t.TotalSeconds)/(60);
+                Boolean odd, even;
+                if ((currentSec) % 2 == 0)
                 {
-                    odd = 1;
-                    even = 0;
+                    odd = true;
+                    even = false;
                 }
                 else
                 {
-                    odd = 0;
-                    even = 1;
+                    odd = false;
+                    even = true;
                 }
+            
 
-
-                for (int i = 0; i < bulbCount; i++)
+            for (int i = 0; i < bulbCount; i++)
                 {
                     if (i % 2 == 0)
                     {
@@ -42,11 +40,8 @@ namespace Homework6
                         garState[i] = even;
                     }
                 }
-
                 return garState;
             }
-
-
         }
-  
+ 
 }

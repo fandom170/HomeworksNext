@@ -8,20 +8,15 @@ namespace Homework6
 {
     class BlankBulb
     {
-        private int orderNo;
+        private int _orderNo;
         public BlankBulb(int orderNo) 
         {
-            this.orderNo = orderNo;
+            this._orderNo = orderNo;
         }
 
-        public void SetNumber (int k)
+        public int OrderNumber
         {
-            orderNo = k;
-        }
-
-        public int GetNumber() 
-        {
-            return orderNo;
+            get { return _orderNo; }
         }
     }
 }

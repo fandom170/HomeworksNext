@@ -8,23 +8,23 @@ namespace Homework6
 {
     class ColourBulb
     {
-        private int orderNo;
-        private String bulbColour;
+        private int _orderNo;
+        private String _bulbColour;
 
         public ColourBulb(int orderNo, String colour) 
         {
-            this.orderNo = orderNo;
-            this.bulbColour = colour;
+            this._orderNo = orderNo;
+            this._bulbColour = colour;
         }
 
-        public String GetBulbColour() 
+        public String BulbColour 
         {
-            return bulbColour;
+            get { return _bulbColour; }
         }
 
-        public int GetBulbNumber ()
+        public int OrderNumber 
         {
-            return orderNo;
+            get { return _orderNo; }
         }
     }
 }

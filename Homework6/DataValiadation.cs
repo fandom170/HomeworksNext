@@ -12,29 +12,16 @@ namespace Homework6
         {
             int leiLength = 0;
             Boolean validData;
-            Console.WriteLine("Enter the length of the (0) garland, please.\n", colour);
+            Console.WriteLine("Enter the length of the {0} garland, please.", colour);
             String strLeiLength = Console.ReadLine();
-
-            try
-            {
-                leiLength = Int32.Parse(strLeiLength);
-                validData = true;
-            }
-            catch (Exception e)
-            {
-                validData = false;
-                Console.WriteLine("Wrong value was entered, length will be set randomly from  50 to 100");
-                
-                
-            }
-
+            validData = Int32.TryParse(strLeiLength, out leiLength);
             if (!validData)
             {
+                Console.WriteLine("Wrong value was entered, length will be set randomly from  50 to 100");
                 Random r = new Random();
                 leiLength = r.Next(50, 100);
                 Console.WriteLine("New {0} garland lenth will be set to {1}", colour, leiLength);
             }
-
             return leiLength;
         }
     }

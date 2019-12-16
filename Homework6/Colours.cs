@@ -20,4 +20,16 @@ namespace Homework6
 
         };
     }
+
+    enum Colors
+    { 
+            RED = 0,
+            GREEN = 1,
+            YELLOW= 2,
+            BLUE = 3,
+            PURPLE = 4,
+            CYAN = 5,
+            WHITE = 6,
+            BLANK = 7
+    }
 }

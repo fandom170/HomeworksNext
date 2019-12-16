@@ -23,39 +23,24 @@ namespace Homework6
 
         public void GetState ()
         {
-
             string state = "";
             string lampState = "";
-            int[] garState = turnState();
-            TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
-            int minutes = (int)(t.TotalSeconds) / (60 * 1000);
-            String odd, even, ansiColor;
-
-            if (minutes % 2 == 0)
-            {
-                odd = "turned off";
-                even = "turned on";
-            }
-            else
-            {
-                odd = "turned on";
-                even = "turned off";
-            }
-
-            
+            Boolean[] garState = turnState();
+            String odd, even;
 
             for (int i = 0; i < garland.Length; i++)
             {
-                if (garland[i].GetBulbNumber() % 2 == 0)
+                if (garState[i])
                 {
-                    lampState = odd;
+                    lampState = "turned on";
+
                 }
-                else
+                else 
                 {
-                    lampState = even;
+                    lampState = "turned off";
                 }
-                state = "Color garland lamp #" + (garland[i].GetBulbNumber() + 1) + " is " +
-                        garland[i].GetBulbColour() + " and " + lampState + " now.\n";
+                state = "Color garland lamp #" + (garland[i].OrderNumber + 1) + " is " +
+                        garland[i].BulbColour + " and " + lampState + " now.\n";
                 GetColor(i, lampState);
                 Console.WriteLine(state);
                 Console.ResetColor();
@@ -64,10 +49,9 @@ namespace Homework6
 
         public void GetColor (int i, String lampState)
         {
-            String ansiColor;
-            if(lampState.Equals("turned on"))
+            if(garState[i])
             {
-                switch (garland[i].GetBulbColour())
+                switch (garland[i].BulbColour)
                 {
                     case "RED":
                         Console.ForegroundColor = ConsoleColor.Red;
