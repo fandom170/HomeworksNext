@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class Colours
+    /*class Colours
     {
         public static String[] colors = {
             "RED",
@@ -19,7 +19,7 @@ namespace Homework6
             "BLANK"
 
         };
-    }
+    }*/
 
     enum Colors
     { 
@@ -29,7 +29,7 @@ namespace Homework6
             BLUE = 3,
             PURPLE = 4,
             CYAN = 5,
-            WHITE = 6,
-            BLANK = 7
+            WHITE = 6 /*,
+            BLANK = 7*/
     }
 }

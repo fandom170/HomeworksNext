@@ -9,15 +9,15 @@ namespace Homework6
     class ColourBulb
     {
         private int _orderNo;
-        private String _bulbColour;
+        private string _bulbColour;
 
-        public ColourBulb(int orderNo, String colour) 
+        public ColourBulb(int orderNo, string colour) 
         {
             this._orderNo = orderNo;
             this._bulbColour = colour;
         }
 
-        public String BulbColour 
+        public string BulbColour 
         {
             get { return _bulbColour; }
         }

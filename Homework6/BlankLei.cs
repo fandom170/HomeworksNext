@@ -26,7 +26,6 @@ namespace Homework6
 
             for (int i = 0; i < garland.Length; i++)
             {
-                BlankBulb bl = garland[i];
                 if (!garState[i])
                 {
                     temp = "is turned off";

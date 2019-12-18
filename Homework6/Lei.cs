@@ -11,6 +11,8 @@ namespace Homework6
             public int bulbCount;
             public Boolean[] garState;
 
+            //public abstract void GetState();
+
             public Boolean[] turnState()
             {
                 garState = new Boolean[bulbCount];

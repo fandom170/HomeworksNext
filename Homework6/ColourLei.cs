@@ -16,7 +16,8 @@ namespace Homework6
             garland = new ColourBulb[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
-                String colour = Colours.colors[i % (Colours.colors.Length - 1)];
+                string colour = BulbColorSelect(i);
+                //String colour = Colours.colors[i % (Colours.colors.Length - 1)];
                 garland[i] = new ColourBulb(i, colour);
             }
         }
@@ -26,7 +27,6 @@ namespace Homework6
             string state = "";
             string lampState = "";
             Boolean[] garState = turnState();
-            String odd, even;
 
             for (int i = 0; i < garland.Length; i++)
             {
@@ -39,6 +39,8 @@ namespace Homework6
                 {
                     lampState = "turned off";
                 }
+                /*state = "Color garland lamp #" + (garland[i].OrderNumber + 1) + " is " +
+                        garland[i].BulbColour.ToString() + " and " + lampState + " now.\n";*/
                 state = "Color garland lamp #" + (garland[i].OrderNumber + 1) + " is " +
                         garland[i].BulbColour + " and " + lampState + " now.\n";
                 GetColor(i, lampState);
@@ -51,7 +53,7 @@ namespace Homework6
         {
             if(garState[i])
             {
-                switch (garland[i].BulbColour)
+                switch (garland[i].BulbColour.ToString())
                 {
                     case "RED":
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -80,6 +82,24 @@ namespace Homework6
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
+        }
+
+        public string BulbColorSelect(int i) {
+            string currentBulbColor = "";
+            int count = Enum.GetValues(typeof(Colors)).Length;
+            int rest = i % count;
+
+            foreach (int j in Enum.GetValues(typeof(Colors)))
+            {
+                if (j == rest) 
+                {
+
+                    currentBulbColor = Enum.GetName(typeof(Colors),rest);
+                    break;
+                }
+            }
+
+            return currentBulbColor;
         }
     }
 }
