@@ -21,9 +21,9 @@ namespace Homework6
             if (type.Equals("both"))
             {
                 colour = "Colour";
-                ColourLei leiColour = new ColourLei(dv.getLeiLength(colour));
+                ColourLei leiColour = new ColourLei(dv.GetLeiLength(colour));
                 colour = "Blank";
-                BlankLei leiBlank = new BlankLei(dv.getLeiLength(colour));
+                BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
                
                 leiColour.GetState();
                 leiBlank.GetState();
@@ -31,13 +31,13 @@ namespace Homework6
             else if (type.Equals("blank"))
             {
                 colour = "Blank";
-                BlankLei leiBlank = new BlankLei(dv.getLeiLength(colour));
+                BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
                 leiBlank.GetState();
             }
             else if (type.Equals("color"))
             {
                 colour = "Colour";
-                ColourLei leiColour = new ColourLei(dv.getLeiLength(colour));
+                ColourLei leiColour = new ColourLei(dv.GetLeiLength(colour));
                 leiColour.GetState();
             }
             else

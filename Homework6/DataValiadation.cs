@@ -8,7 +8,7 @@ namespace Homework6
 {
     class DataValiadation
     {
-        public int getLeiLength(String colour)
+        public int GetLeiLength(String colour)
         {
             int leiLength = 0;
             Boolean validData;
