@@ -6,44 +6,34 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-        public abstract class Lei
+    public /*abstract*/ class Lei <T>
+    {
+        private int _bulbCount;
+
+        private T garlandType;
+
+        public T Value 
         {
-            public int bulbCount;
-            public Boolean[] garState;
-
-            //public abstract void GetState();
-
-            public Boolean[] turnState()
-            {
-                garState = new Boolean[bulbCount];
-                TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
-                int currentSec = (int)(t.TotalSeconds)/(60);
-                Boolean odd, even;
-                if ((currentSec) % 2 == 0)
-                {
-                    odd = true;
-                    even = false;
-                }
-                else
-                {
-                    odd = false;
-                    even = true;
-                }
-            
-
-            for (int i = 0; i < bulbCount; i++)
-                {
-                    if (i % 2 == 0)
-                    {
-                        garState[i] = odd;
-                    }
-                    else
-                    {
-                        garState[i] = even;
-                    }
-                }
-                return garState;
-            }
+            get { return this.garlandType; }
+            set { this.garlandType = value; }
         }
- 
+      
+        
+        
+        public int BulbCount 
+            {
+                get {return _bulbCount;}
+                set { _bulbCount = value; }
+            }
+
+        //public 
+
+        public /*abstract*/ void GetState() { }
+        //public abstract void GetState();
+
+        public Boolean GetCurrentMinutesState()
+        {
+            return ((int)DateTime.Now.Minute)%2 == 0? true : false;
+        }
+    }
 }

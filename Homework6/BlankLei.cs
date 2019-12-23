@@ -6,37 +6,34 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class BlankLei : Lei
+    class BlankLei : Lei<BlankLei>
     {
         private BlankBulb[] garland;
         public BlankLei(int bulbCount)
         {
-            this.bulbCount = bulbCount;
+            this.BulbCount = bulbCount;
             garland = new BlankBulb[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
-                garland[i] = new BlankBulb(i);
+                garland[i] = new BlankBulb();
             }
         }
 
-        public void GetState()
+        override public void GetState()
         {
-            string state = "", temp;
-            Boolean[] garState = turnState();
-
+            string state = "";
+            Boolean minutes = GetCurrentMinutesState();
             for (int i = 0; i < garland.Length; i++)
             {
-                if (!garState[i])
+                if (minutes)
                 {
-                    temp = "is turned off";
+                    state = i % 2 == 0 ? "is turned off" : "is turned on";
                 }
                 else
                 {
-                    temp = "is turned on";
+                    state = i%2 == 0? "is turned on": "is turned off";
                 }
-                state = "Blank garland lamp #" + (garland[i].OrderNumber + 1) + "is " + temp + " now.\n";
-                Console.WriteLine(state);
-
+                Console.WriteLine("Blank garland lamp # {0} is {1} now.\n", (i + 1), state);
             }
         }
     }

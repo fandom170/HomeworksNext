@@ -10,6 +10,17 @@ namespace Homework7
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(GetCurrentMinutes());
         }
+
+        public static int GetCurrentMinutes()
+        {
+
+            return (int)DateTime.Now.Minute;
+        }
+
+
     }
+
+    
 }

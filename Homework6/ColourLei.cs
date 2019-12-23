@@ -6,52 +6,46 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class ColourLei : Lei
+    class ColourLei : Lei<ColourLei>
     {
         private ColourBulb[] garland;
 
         public ColourLei (int bulbCount)
         {
-            this.bulbCount = bulbCount;
+            this.BulbCount = bulbCount;
             garland = new ColourBulb[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
                 string colour = BulbColorSelect(i);
-                //String colour = Colours.colors[i % (Colours.colors.Length - 1)];
-                garland[i] = new ColourBulb(i, colour);
+                garland[i] = new ColourBulb(colour);
             }
         }
 
-        public void GetState ()
+        override public void GetState ()
         {
-            string state = "";
-            string lampState = "";
-            Boolean[] garState = turnState();
 
+            string state = "";
+            Boolean minutes = GetCurrentMinutesState();
             for (int i = 0; i < garland.Length; i++)
             {
-                if (garState[i])
+                if (minutes)
                 {
-                    lampState = "turned on";
+                    state = i % 2 == 0 ? "is turned off" : "is turned on";
+                }
+                else
+                {
+                    state = i % 2 == 0 ? "is turned on" : "is turned off";
+                }
 
-                }
-                else 
-                {
-                    lampState = "turned off";
-                }
-                /*state = "Color garland lamp #" + (garland[i].OrderNumber + 1) + " is " +
-                        garland[i].BulbColour.ToString() + " and " + lampState + " now.\n";*/
-                state = "Color garland lamp #" + (garland[i].OrderNumber + 1) + " is " +
-                        garland[i].BulbColour + " and " + lampState + " now.\n";
-                GetColor(i, lampState);
-                Console.WriteLine(state);
+                GetColor(i, state);
+                Console.WriteLine("Color garland lamp #{0} is {1} and {2} now.\n", (i + 1), garland[i].BulbColour , state);
                 Console.ResetColor();
             }
         }
 
-        public void GetColor (int i, String lampState)
+        public void GetColor (int i, String state)
         {
-            if(garState[i])
+            if(state.Equals("is turned on"))
             {
                 switch (garland[i].BulbColour.ToString())
                 {

@@ -8,15 +8,16 @@ namespace Homework6
 {
     class BlankBulb
     {
-        private int _orderNo;
-        public BlankBulb(int orderNo) 
+        private Boolean _lampState;
+        public BlankBulb() 
         {
-            this._orderNo = orderNo;
+            
         }
 
-        public int OrderNumber
+        public Boolean LampState 
         {
-            get { return _orderNo; }
+            get { return _lampState; }
+            set { _lampState = value; }
         }
     }
 }

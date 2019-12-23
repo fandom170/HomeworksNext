@@ -8,12 +8,12 @@ namespace Homework6
 {
     class ColourBulb
     {
-        private int _orderNo;
         private string _bulbColour;
+        private Boolean _lampState;
 
-        public ColourBulb(int orderNo, string colour) 
+        public ColourBulb(string colour) 
         {
-            this._orderNo = orderNo;
+            
             this._bulbColour = colour;
         }
 
@@ -22,9 +22,10 @@ namespace Homework6
             get { return _bulbColour; }
         }
 
-        public int OrderNumber 
+        public Boolean LampState
         {
-            get { return _orderNo; }
+            get { return _lampState ; }
+            set { _lampState = value; }
         }
     }
 }
