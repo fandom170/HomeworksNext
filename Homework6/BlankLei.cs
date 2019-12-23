@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class BlankLei : Lei<BlankLei>
+    class BlankLei : Lei
     {
-        private BlankBulb[] garland;
+        private Bulb<BlankBulb>[]  garland;
         public BlankLei(int bulbCount)
         {
             this.BulbCount = bulbCount;
-            garland = new BlankBulb[bulbCount];
+            garland = new Bulb<BlankBulb>[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
-                garland[i] = new BlankBulb();
+                //garland[i] = new BlankBulb();
+                garland[i] = new Bulb<BlankBulb>();
             }
         }
 

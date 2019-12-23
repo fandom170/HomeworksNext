@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class ColourLei : Lei<ColourLei>
+    class ColourLei : Lei
     {
-        private ColourBulb[] garland;
+        private Bulb<ColourBulb>[] garland;
 
         public ColourLei (int bulbCount)
         {
             this.BulbCount = bulbCount;
-            garland = new ColourBulb[bulbCount];
+            garland = new Bulb<ColourBulb>[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
                 string colour = BulbColorSelect(i);
-                garland[i] = new ColourBulb(colour);
+                garland[i] = new Bulb<ColourBulb>(colour);
             }
         }
 
