@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class ColourLei : Lei
+    class ColourLei : Lei<ColourBulb>
     {
-        private Bulb<ColourBulb>[] garland;
+        //private ColourBulb[] garland;
 
         public ColourLei (int bulbCount)
         {
             this.BulbCount = bulbCount;
-            garland = new Bulb<ColourBulb>[bulbCount];
+            Garland = new ColourBulb[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
                 string colour = BulbColorSelect(i);
-                garland[i] = new Bulb<ColourBulb>(colour);
+                Garland[i] = new ColourBulb(colour);
             }
         }
 
@@ -26,7 +26,7 @@ namespace Homework6
 
             string state = "";
             Boolean minutes = GetCurrentMinutesState();
-            for (int i = 0; i < garland.Length; i++)
+            for (int i = 0; i < Garland.Length; i++)
             {
                 if (minutes)
                 {
@@ -38,7 +38,7 @@ namespace Homework6
                 }
 
                 GetColor(i, state);
-                Console.WriteLine("Color garland lamp #{0} is {1} and {2} now.\n", (i + 1), garland[i].BulbColour , state);
+                Console.WriteLine("Color garland lamp #{0} is {1} and {2} now.\n", (i + 1), Garland[i].BulbColour , state);
                 Console.ResetColor();
             }
         }
@@ -47,7 +47,7 @@ namespace Homework6
         {
             if(state.Equals("is turned on"))
             {
-                switch (garland[i].BulbColour.ToString())
+                switch (Garland[i].BulbColour.ToString())
                 {
                     case "RED":
                         Console.ForegroundColor = ConsoleColor.Red;

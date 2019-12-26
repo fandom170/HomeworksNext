@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class BlankLei : Lei
+    class BlankLei : Lei<BlankBulb>
     {
-        private Bulb<BlankBulb>[]  garland;
-        public BlankLei(int bulbCount)
-        {
+        public BlankLei(int bulbCount)         {
             this.BulbCount = bulbCount;
-            garland = new Bulb<BlankBulb>[bulbCount];
+            //garland = new BlankBulb[bulbCount];
+            Garland  = new BlankBulb[BulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
                 //garland[i] = new BlankBulb();
-                garland[i] = new Bulb<BlankBulb>();
+                Garland[i] = new BlankBulb();
             }
         }
 
@@ -24,7 +23,7 @@ namespace Homework6
         {
             string state = "";
             Boolean minutes = GetCurrentMinutesState();
-            for (int i = 0; i < garland.Length; i++)
+            for (int i = 0; i < Garland.Length; i++)
             {
                 if (minutes)
                 {

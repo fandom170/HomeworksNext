@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    public abstract class Lei //<T>
+    public abstract class Lei<T>
     {
         private int _bulbCount;
-       
+        private T [] _garland;
+
+        public T [] Garland 
+            {
+                get { return _garland; }
+                set { _garland = value; }
+            }
+
+
         public int BulbCount 
             {
                 get {return _bulbCount;}

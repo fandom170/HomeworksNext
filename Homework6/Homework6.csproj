@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="BlankBulb.cs" />
     <Compile Include="BlankLei.cs" />
-    <Compile Include="Bulb.cs" />
     <Compile Include="ColourBulb.cs" />
     <Compile Include="ColourLei.cs" />
     <Compile Include="Colours.cs" />

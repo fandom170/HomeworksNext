@@ -9,15 +9,17 @@ namespace Homework6
     class BlankBulb
     {
         private Boolean _lampState;
-        public BlankBulb() 
-        {
-            
-        }
+        private string _lampColour = "WHITE";
 
         public Boolean LampState 
         {
             get { return _lampState; }
             set { _lampState = value; }
+        }
+
+        public string LampColour 
+        {
+            get { return _lampColour; }
         }
     }
 }
