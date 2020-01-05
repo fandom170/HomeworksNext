@@ -8,7 +8,6 @@ namespace Homework6
 {
     class ColourLei : Lei<ColourBulb>
     {
-        //private ColourBulb[] garland;
 
         public ColourLei (int bulbCount)
         {
@@ -87,7 +86,6 @@ namespace Homework6
             {
                 if (j == rest) 
                 {
-
                     currentBulbColor = Enum.GetName(typeof(Colors),rest);
                     break;
                 }
