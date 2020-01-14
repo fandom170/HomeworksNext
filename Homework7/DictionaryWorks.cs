@@ -45,12 +45,14 @@ namespace Homework7
                     try
                     {
                         docLine = csvReader.ReadLine();
-                        if (docLine.Equals("") || docLine.Equals(" ")) { break; }
-                        string[] line = docLine.Trim().Split(',');
-                        string telenorSupport = line[1];
-                        Boolean support = telenorSupport.Equals(true) ? true : false;
-                        Country country = new Country(line[0], support);
-                        readFileData.Add(orderNumber, country);
+                        if (!string.IsNullOrEmpty(docLine.Trim()))
+                        { 
+                            string[] line = docLine.Trim().Split(',');
+                            string telenorSupport = line[1];
+                            Boolean support = telenorSupport.Equals("true");
+                            Country country = new Country(line[0], support);
+                            readFileData.Add(orderNumber, country);
+                        }
                     }
                     catch (IOException)
                     {
@@ -71,7 +73,9 @@ namespace Homework7
                 foreach (KeyValuePair<int, Country> entry in _countryList)
                 {
                     Country tempCountry = entry.Value;
-                    string line = tempCountry.Name.ToString() + "," + (tempCountry.IsTelenorsupported ? "true" : "false");
+                   // string line = tempCountry.Name.ToString() + "," + (tempCountry.IsTelenorsupported ? "true" : "false");
+                    string line = $"{empCountry.Name},{tempCountry.IsTelenorsupported.ToString}"; 
+                    line = line.Trim().Replace($"{System.Environment.NewLine}", "");
 
                     try
                     {
@@ -81,9 +85,9 @@ namespace Homework7
 
                         
                     }
-                    catch (IOException)
+                    catch (IOException ex)
                     {
-                        Console.WriteLine("Wrote file IO Exception at line {0}", entry.Key);
+                        Console.WriteLine("Wrote file IO Exception at line {0} \n exception {1}", entry.Key, ex);
                         Environment.Exit(-1);
                     }
 
@@ -95,6 +99,7 @@ namespace Homework7
 
         public void PrintCountries(Boolean support)
         {
+            //_countryList.Where<>
             foreach (KeyValuePair<int, Country> entry in _countryList)
             {
                 Country tempCountry = entry.Value;
@@ -119,7 +124,7 @@ namespace Homework7
             }
 
 
-            Country newCountry = new Country(country, telenorSupport);
+            Country newCountry = new Country(country, telenorSupport);///add endless increment
             try 
             {
                 
@@ -137,17 +142,18 @@ namespace Homework7
 
         public int GetCountryIdByName(string name) 
         {
-            int index = -1;
+            //int index = -1;
             foreach (KeyValuePair<int, Country> entry in _countryList) 
             {
                 Country tempCountry = entry.Value;
                 if (tempCountry.Name.Equals(name)) 
                 {
-                    index = entry.Key;
-                    break;
+                    //index = entry.Key;
+                    return entry.Key;
+                    //break;
                 }
             }
-                return index;
+                //return -1;
         }
 
         public void UpdateCountry(Boolean isTelenorSupported, int countryId)
@@ -155,7 +161,8 @@ namespace Homework7
             Country tempCountry = null;
             int orderNo = 0;
 
-            foreach (KeyValuePair<int, Country> entry in _countryList)
+
+            foreach (KeyValuePair<int, Country> entry in _countryList)///////////////delete
             {
                 orderNo = entry.Key;
                 if (orderNo == countryId)
@@ -165,6 +172,7 @@ namespace Homework7
                     break;
                 }
             }
+
             if (orderNo > 0 && tempCountry != null)
             {
                 _countryList.Remove(orderNo);

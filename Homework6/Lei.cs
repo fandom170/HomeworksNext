@@ -11,6 +11,9 @@ namespace Homework6
         private int _bulbCount;
         private T [] _garland;
 
+
+
+
         public T [] Garland 
             {
                 get { return _garland; }
