@@ -36,7 +36,7 @@ namespace Homework7
             SortedDictionary<int, Country> readFileData = new SortedDictionary<int, Country>();
             int orderNumber = 0;
 
-            using (StreamReader csvReader = new StreamReader(File.OpenRead(CsvPath)))
+            using (StreamReader csvReader = new StreamReader(File.OpenRead(_csvPath)))
             {
                 while (!csvReader.EndOfStream)
                 {

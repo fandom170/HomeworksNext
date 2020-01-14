@@ -10,16 +10,17 @@ namespace Homework7
     {
         static void Main(string[] args)
         {
-            string csvPath = "C:\\Users\\ПК\\source\\repos\\HomeworksC\\Homework7\\Countries.csv";
-            string newCountry = "Ukraine";
+            string csvPath = "C:\\Users\\User\\source\\repos\\fandom170\\HomeworksNext\\Homework7";
             Boolean newSupportStatus = false; //for new country
+            String newCountryName = "Ukraine";
             string country1forUpdate = "Denmark";
             string country2forUpdate = "Hungary";
             int countryId;
             Boolean newTelenorSupport = true;//for existing countries
 
+            
             DictionaryWorks dw = new DictionaryWorks(csvPath);
-            Console.WriteLine(dw.AddCountry(newCountry, newSupportStatus));
+            Console.WriteLine(dw.AddCountry(newCountryName, newSupportStatus));
             countryId = dw.GetCountryIdByName(country1forUpdate);
             dw.UpdateCountry(newTelenorSupport, countryId);
             countryId = dw.GetCountryIdByName(country2forUpdate);
