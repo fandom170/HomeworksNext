@@ -12,7 +12,7 @@ namespace Homework6
         public ColourLei (int bulbCount)
         {
             this.BulbCount = bulbCount;
-            Garland = new ColourBulb[bulbCount];
+            //Garland = new ColourBulb[bulbCount];
             for (int i = 0; i < bulbCount; i++)
             {
                 string colour = BulbColorSelect(i);
@@ -20,31 +20,31 @@ namespace Homework6
             }
         }
 
-        override public void GetState ()
+        new public void GetState ()
         {
-
+            
             string state = "";
             Boolean minutes = GetCurrentMinutesState();
             for (int i = 0; i < Garland.Length; i++)
             {
-                if (minutes)
+                if (minutes ^ (i % 2 == 0))
                 {
-                    state = i % 2 == 0 ? "is turned off" : "is turned on";
+                    state = "on";
                 }
                 else
                 {
-                    state = i % 2 == 0 ? "is turned on" : "is turned off";
+                    state = "off";
                 }
 
                 GetColor(i, state);
-                Console.WriteLine("Color garland lamp #{0} is {1} and {2} now.\n", (i + 1), Garland[i].BulbColour , state);
+                Console.WriteLine("Color garland lamp #{0} is turned {1} and {2} now.\n", (i + 1), Garland[i].BulbColour , state);
                 Console.ResetColor();
             }
         }
 
         public void GetColor (int i, String state)
         {
-            if(state.Equals("is turned on"))
+            if(state.Equals("on"))
             {
                 switch (Garland[i].BulbColour.ToString())
                 {
@@ -77,7 +77,7 @@ namespace Homework6
             }
         }
 
-        public string BulbColorSelect(int i) {
+        new public string BulbColorSelect(int i) {
             string currentBulbColor = "";
             int count = Enum.GetValues(typeof(Colors)).Length;
             int rest = i % count;
@@ -92,6 +92,12 @@ namespace Homework6
             }
 
             return currentBulbColor;
+        }
+
+
+        protected override ColourBulb[] BuildGarland(int bulbsCount)
+        {
+            return new ColourBulb[bulbCount];
         }
     }
 }

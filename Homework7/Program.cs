@@ -10,31 +10,23 @@ namespace Homework7
     {
         static void Main(string[] args)
         {
-            //@
-            string csvPath = "C:\\Users\\User\\source\\repos\\fandom170\\HomeworksNext\\Homework7\\Countries.csv";
-            Boolean newSupportStatus = false; //for new country
-            String newCountryName = "Ukraine";
+            string newCountryName = "Ukraine";
+          
             string country1forUpdate = "Denmark";
             string country2forUpdate = "Hungary";
-            int countryId;
-            Boolean newTelenorSupport = true;//for existing countries
-
             
-            DictionaryWorks dw = new DictionaryWorks(csvPath);
-            Console.WriteLine(dw.AddCountry(newCountryName, newSupportStatus));//send country instnce 
-            countryId = dw.GetCountryIdByName(country1forUpdate);
-            dw.UpdateCountry(newTelenorSupport, countryId);
-            countryId = dw.GetCountryIdByName(country2forUpdate);
-            dw.UpdateCountry(newTelenorSupport, countryId);
+            Helpers helpers = new Helpers();
 
-            dw.WriteFile();
-            dw.PrintCountries(false);
+            Country newCountry = new Country(newCountryName, false);
+
+            Console.WriteLine(helpers.addCountryAsObject(newCountry));
+
+            helpers.UpdateCountryByName(true, country1forUpdate);
+            helpers.UpdateCountryByName(true, country2forUpdate);
+
+            helpers.WriteFile();
+            helpers.PrintCountries(false);
         }
-
-       
     }
-
-    
-
-    
+ 
 }

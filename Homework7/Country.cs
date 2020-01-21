@@ -13,10 +13,11 @@ namespace Homework7
 
         public Country(String name, Boolean telenorSupported)
         {
-            this._name = name;
-            this._isTelenorSupported = telenorSupported;
+            _name = name;
+            _isTelenorSupported = telenorSupported;
         }
 
+        //add auto property
         public string Name 
         { 
             get { return _name; }

@@ -10,6 +10,8 @@ namespace Homework6
     {
         static void Main(string[] args)
         {
+            var bulb = new BlankBulb();
+            bulb.LampState = true;
             string colour;
             string type;
  
