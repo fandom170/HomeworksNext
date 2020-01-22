@@ -10,6 +10,8 @@ namespace Homework6
     {
         static void Main(string[] args)
         {
+            var bulb = new BlankBulb();
+            bulb.LampState = true;
             string colour;
             string type;
  
@@ -21,27 +23,31 @@ namespace Homework6
             if (type.Equals("both"))
             {
                 colour = "Colour";
-                ColourLei leiColour = new ColourLei(dv.GetLeiLength(colour));
+                ColourLei  leiColour = new ColourLei(dv.GetLeiLength(colour));
                 colour = "Blank";
                 BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
-               
+
+                Console.Clear();
                 leiColour.GetState();
                 leiBlank.GetState();
             }
             else if (type.Equals("blank"))
             {
                 colour = "Blank";
+                Console.Clear();
                 BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
                 leiBlank.GetState();
             }
             else if (type.Equals("color"))
             {
+                Console.Clear();
                 colour = "Colour";
                 ColourLei leiColour = new ColourLei(dv.GetLeiLength(colour));
                 leiColour.GetState();
             }
             else
             {
+                //ColourLei cl = new Lei<ColourLei>(dv.GetLeiLength(colour));
                 Environment.Exit(-1);
             }
         }

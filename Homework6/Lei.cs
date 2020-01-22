@@ -6,44 +6,96 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-        public abstract class Lei
+    public abstract class Lei<T>
+    {
+        private int _bulbCount;
+        private T [] _garland;
+        protected Boolean color = false;
+
+        public Lei() { }
+
+        public Lei(int bulbCount) 
         {
-            public int bulbCount;
-            public Boolean[] garState;
+            _garland = BuildGarland();
+        }
 
-            //public abstract void GetState();
+        protected abstract T [] BuildGarland(int bulbscount);
+        
+        public Lei(Boolean color, int bulbCount) 
+        {
+            this.BulbCount = bulbCount;
+            this._garland = new T[bulbCount];
+            Garland = new T[bulbCount];
 
-            public Boolean[] turnState()
+            if (color == true)
             {
-                garState = new Boolean[bulbCount];
-                TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
-                int currentSec = (int)(t.TotalSeconds)/(60);
-                Boolean odd, even;
-                if ((currentSec) % 2 == 0)
+                for (int i = 0; i < bulbCount; i++)
                 {
-                    odd = true;
-                    even = false;
+                    string colour = BulbColorSelect(i);
+                    _garland[i] = new ColourBulb(colour);
+                }
+            }
+
+            else 
+            {
+                for (int i = 0; i < bulbCount; i++)
+                {
+                    _garland[i] = new BlankBulb();
+                }
+            }
+        }
+
+        public T [] Garland 
+            {
+                get { return _garland; }
+                set { _garland = value; }
+            }
+
+        public int BulbCount 
+            {
+                get {return _bulbCount;}
+                set { _bulbCount = value; }
+            }
+
+        public void GetState()
+        {
+            string state = "";
+            Boolean minutes = GetCurrentMinutesState();
+            for (int i = 0; i < Garland.Length; i++)
+            {
+                if (minutes ^ (i % 2 == 0))
+                {
+                    state = "off";
                 }
                 else
                 {
-                    odd = false;
-                    even = true;
+                    state = "on";
                 }
-            
-
-            for (int i = 0; i < bulbCount; i++)
-                {
-                    if (i % 2 == 0)
-                    {
-                        garState[i] = odd;
-                    }
-                    else
-                    {
-                        garState[i] = even;
-                    }
-                }
-                return garState;
+                Console.WriteLine("Blank garland lamp # {0} is turned {1} now.\n", (i + 1), state);
             }
         }
- 
+
+        public Boolean GetCurrentMinutesState()
+        {
+            return ((int)DateTime.Now.Minute)%2 == 0? true : false;
+        }
+
+        public string BulbColorSelect(int i)
+        {
+            string currentBulbColor = "";
+            int count = Enum.GetValues(typeof(Colors)).Length;
+            int rest = i % count;
+
+            foreach (int j in Enum.GetValues(typeof(Colors)))
+            {
+                if (j == rest)
+                {
+                    currentBulbColor = Enum.GetName(typeof(Colors), rest);
+                    break;
+                }
+            }
+
+            return currentBulbColor;
+        }
+    }
 }

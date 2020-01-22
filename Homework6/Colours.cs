@@ -6,21 +6,6 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    /*class Colours
-    {
-        public static String[] colors = {
-            "RED",
-            "GREEN",
-            "YELLOW",
-            "BLUE",
-            "PURPLE",
-            "CYAN",
-            "WHITE",
-            "BLANK"
-
-        };
-    }*/
-
     enum Colors
     { 
             RED = 0,
