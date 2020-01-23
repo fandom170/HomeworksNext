@@ -12,7 +12,8 @@ namespace Homework6
         public ColourLei (int bulbCount)
         {
             this.BulbCount = bulbCount;
-            //Garland = new ColourBulb[bulbCount];
+            Garland = new ColourBulb[bulbCount];
+            //Garland = BuildGarland(bulbCount);
             for (int i = 0; i < bulbCount; i++)
             {
                 string colour = BulbColorSelect(i);
@@ -95,9 +96,17 @@ namespace Homework6
         }
 
 
-        protected override ColourBulb[] BuildGarland(int bulbsCount)
+        //protected override ColourBulb[] BuildGarland(int bulbCount)
+        //{
+        //    return new ColourBulb[bulbCount];
+        //}
+
+        public void SetLampState () 
         {
-            return new ColourBulb[bulbCount];
+            for (int i = 0; i < Garland.Length; i++) 
+            {
+                Garland[i].LampState = GetLampState(i);
+            }
         }
     }
 }

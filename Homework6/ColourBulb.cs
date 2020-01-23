@@ -6,26 +6,38 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    class ColourBulb
+    public class ColourBulb
     {
-        private string _bulbColour;
+        public string BulbColour {get;}
         private Boolean _lampState;
+        private string _stringLampState;
 
         public ColourBulb(string colour) 
         {
             
-            this._bulbColour = colour;
+            this.BulbColour = colour;
         }
 
-        public string BulbColour 
+        public string StringLampState 
         {
-            get { return _bulbColour; }
+            get {return _stringLampState;}
         }
 
         public Boolean LampState
         {
             get { return _lampState ; }
-            set { _lampState = value; }
+            set 
+            { 
+                _lampState = value; 
+                if(value) 
+                {
+                    _stringLampState = "on";
+                }
+                else 
+                {
+                    _stringLampState = "off";
+                }
+            }
         }
     }
 }

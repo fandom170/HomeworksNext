@@ -24,14 +24,19 @@ namespace Homework6
             {
                 colour = "Colour";
                 ColourLei  leiColour = new ColourLei(dv.GetLeiLength(colour));
+                //leiColour.SetState();
+                //leiColour.PrintGarland("Color");
+
+                Console.WriteLine("Printing completed");
+
                 colour = "Blank";
                 BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
 
                 Console.Clear();
                 leiColour.GetState();
-                leiBlank.GetState();
+                //leiBlank.GetState();
             }
-            else if (type.Equals("blank"))
+            /*else if (type.Equals("blank"))
             {
                 colour = "Blank";
                 Console.Clear();
@@ -44,7 +49,7 @@ namespace Homework6
                 colour = "Colour";
                 ColourLei leiColour = new ColourLei(dv.GetLeiLength(colour));
                 leiColour.GetState();
-            }
+            }*/
             else
             {
                 //ColourLei cl = new Lei<ColourLei>(dv.GetLeiLength(colour));

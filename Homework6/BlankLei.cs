@@ -17,5 +17,10 @@ namespace Homework6
                 Garland[i] = new BlankBulb();
             }
         }
+
+        //protected override BlankBulb[] BuildGarland(int bulbCount)
+        //{
+        //    return new BlankBulb[bulbCount];
+        //}
     }
 }

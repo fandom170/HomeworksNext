@@ -14,12 +14,12 @@ namespace Homework6
 
         public Lei() { }
 
-        public Lei(int bulbCount) 
-        {
-            _garland = BuildGarland();
-        }
+        //public Lei(int bulbCount) 
+        //{
+        //    _garland = BuildGarland(bulbCount);
+        //}
 
-        protected abstract T [] BuildGarland(int bulbscount);
+        //protected abstract T [] BuildGarland(int bulbscount);
         
         public Lei(Boolean color, int bulbCount) 
         {
@@ -27,22 +27,7 @@ namespace Homework6
             this._garland = new T[bulbCount];
             Garland = new T[bulbCount];
 
-            if (color == true)
-            {
-                for (int i = 0; i < bulbCount; i++)
-                {
-                    string colour = BulbColorSelect(i);
-                    _garland[i] = new ColourBulb(colour);
-                }
-            }
-
-            else 
-            {
-                for (int i = 0; i < bulbCount; i++)
-                {
-                    _garland[i] = new BlankBulb();
-                }
-            }
+            
         }
 
         public T [] Garland 
@@ -57,23 +42,7 @@ namespace Homework6
                 set { _bulbCount = value; }
             }
 
-        public void GetState()
-        {
-            string state = "";
-            Boolean minutes = GetCurrentMinutesState();
-            for (int i = 0; i < Garland.Length; i++)
-            {
-                if (minutes ^ (i % 2 == 0))
-                {
-                    state = "off";
-                }
-                else
-                {
-                    state = "on";
-                }
-                Console.WriteLine("Blank garland lamp # {0} is turned {1} now.\n", (i + 1), state);
-            }
-        }
+        
 
         public Boolean GetCurrentMinutesState()
         {
@@ -97,5 +66,10 @@ namespace Homework6
 
             return currentBulbColor;
         }
+
+        public Boolean GetLampState(int i, Boolean minutes = GetCurrentMinutesState())
+        {
+                return (minutes ^ (i % 2 == 1));
+         }
     }
 }
