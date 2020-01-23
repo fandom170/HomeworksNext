@@ -11,6 +11,12 @@ namespace Homework6
 
         public ColourLei (int bulbCount)
         {
+            /*
+            for(int i = 0; i < Garland.Length; i++)
+            {
+                Garland[i].BulbColour = ()
+            }*/
+
             this.BulbCount = bulbCount;
             Garland = new ColourBulb[bulbCount];
             //Garland = BuildGarland(bulbCount);
@@ -21,7 +27,7 @@ namespace Homework6
             }
         }
 
-        new public void GetState ()
+        /*new public void GetState ()
         {
             
             string state = "";
@@ -41,11 +47,11 @@ namespace Homework6
                 Console.WriteLine("Color garland lamp #{0} is turned {1} and {2} now.\n", (i + 1), Garland[i].BulbColour , state);
                 Console.ResetColor();
             }
-        }
+        }*/
 
-        public void GetColor (int i, String state)
+        public void GetColor (int i, Boolean state)
         {
-            if(state.Equals("on"))
+            if(state.Equals(true))
             {
                 switch (Garland[i].BulbColour.ToString())
                 {
@@ -78,10 +84,11 @@ namespace Homework6
             }
         }
 
-        new public string BulbColorSelect(int i) {
+        public string BulbColorSelect(int i) {
             string currentBulbColor = "";
             int count = Enum.GetValues(typeof(Colors)).Length;
             int rest = i % count;
+            Colors c = (Colors)(i % count);
 
             foreach (int j in Enum.GetValues(typeof(Colors)))
             {
@@ -101,12 +108,13 @@ namespace Homework6
         //    return new ColourBulb[bulbCount];
         //}
 
-        public void SetLampState () 
+        //SetLampState();
+        /*public void SetLampState () 
         {
             for (int i = 0; i < Garland.Length; i++) 
             {
-                Garland[i].LampState = GetLampState(i);
+                
             }
-        }
+        }*/
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    public abstract class Lei<T>
+    public abstract class Lei<T> where T : BlankBulb
     {
         private int _bulbCount;
         private T [] _garland;
@@ -21,14 +21,12 @@ namespace Homework6
 
         //protected abstract T [] BuildGarland(int bulbscount);
         
-        public Lei(Boolean color, int bulbCount) 
-        {
-            this.BulbCount = bulbCount;
-            this._garland = new T[bulbCount];
-            Garland = new T[bulbCount];
-
-            
-        }
+        //public Lei(Boolean color, int bulbCount) 
+        //{
+        //    this.BulbCount = bulbCount;
+        //    this._garland = new T[bulbCount];
+        //    Garland = new T[bulbCount];
+        //}
 
         public T [] Garland 
             {
@@ -41,13 +39,6 @@ namespace Homework6
                 get {return _bulbCount;}
                 set { _bulbCount = value; }
             }
-
-        
-
-        public Boolean GetCurrentMinutesState()
-        {
-            return ((int)DateTime.Now.Minute)%2 == 0? true : false;
-        }
 
         public string BulbColorSelect(int i)
         {
@@ -67,9 +58,29 @@ namespace Homework6
             return currentBulbColor;
         }
 
-        public Boolean GetLampState(int i, Boolean minutes = GetCurrentMinutesState())
+        public void SetLampState(T [] garland) 
         {
-                return (minutes ^ (i % 2 == 1));
-         }
+            //Boolean minutes = ((int)DateTime.Now.Minute)%2 == 0? true : false;
+
+            int count = Enum.GetNames(typeof(LampStates)).Length;
+            for(int i = 0; i < Garland.Length; i++) 
+            {
+                LampStates state = (LampStates)(i % count);
+                //garland[i].LampState = (minutes ^ (i % 2 == 1)); 
+                Garland[i].EnumLampState = state;
+            }
+        }
+
+        
+
+        public void printGarland (String type) 
+        {
+            for (int i = 0; i < Garland.Length; i++) 
+            {
+                Console.WriteLine("{0} garland {1} lamp #{2} is turned {2} now",
+                    type, Garland[i].BulbColor/*return color depends on lampstate method should be here*/, 
+                    Garland[i].LampState);
+            }
+        }
     }
 }

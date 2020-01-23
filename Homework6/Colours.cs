@@ -14,7 +14,6 @@ namespace Homework6
             BLUE = 3,
             PURPLE = 4,
             CYAN = 5,
-            WHITE = 6 /*,
-            BLANK = 7*/
+            WHITE = 6
     }
 }

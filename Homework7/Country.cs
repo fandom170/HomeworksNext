@@ -8,26 +8,13 @@ namespace Homework7
 {
     class Country
     {
-        private String _name;
-        private Boolean _isTelenorSupported;
+        private String Name {get; set;}
+        private Boolean IsTelenorSupported;
 
         public Country(String name, Boolean telenorSupported)
         {
-            _name = name;
-            _isTelenorSupported = telenorSupported;
-        }
-
-        //add auto property
-        public string Name 
-        { 
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        public Boolean IsTelenorsupported
-        {
-            get { return _isTelenorSupported; }
-            set {_isTelenorSupported = value;}
+            Name = name;
+            IsTelenorSupported = telenorSupported;
         }
     }
 }
