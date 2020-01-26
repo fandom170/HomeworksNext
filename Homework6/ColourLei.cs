@@ -21,33 +21,44 @@ namespace Homework6
             }
         }
 
-        new public void GetState ()
+        new public void PrintGarland(String type)
         {
-            
-            string state = "";
-            Boolean minutes = GetCurrentMinutesState();
             for (int i = 0; i < Garland.Length; i++)
             {
-                if (minutes ^ (i % 2 == 0))
-                {
-                    state = "on";
-                }
-                else
-                {
-                    state = "off";
-                }
-
-                GetColor(i, state);
-                Console.WriteLine("Color garland lamp #{0} is turned {1} and {2} now.\n", (i + 1), Garland[i].BulbColour , state);
-                Console.ResetColor();
+                GetBulbColor(i);
+                Console.WriteLine("{0} garland {1} lamp #{2} is turned {3} now",
+                    type, //0
+                    Garland[i].BulbColor,/*1 */
+                    (i + 1), //2
+                    Garland[i].EnumLampState); //3
             }
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n");
         }
 
-        public void GetColor (int i, String state)
-        {
-            if(state.Equals("on"))
+        public string BulbColorSelect(int i) {
+            string currentBulbColor = "";
+            int count = Enum.GetValues(typeof(Colors)).Length;
+            int rest = i % count;
+
+            foreach (int j in Enum.GetValues(typeof(Colors)))
             {
-                switch (Garland[i].BulbColour.ToString())
+                if (j == rest) 
+                {
+                    currentBulbColor = Enum.GetName(typeof(Colors),rest);
+                    break;
+                }
+            }
+
+            return currentBulbColor;
+        }
+
+        public void GetBulbColor(int i)
+        {
+
+            if (Garland[i].EnumLampState.Equals(LampStates.ON))
+            {
+                switch (Garland[i].BulbColor.ToString())
                 {
                     case "RED":
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -78,35 +89,9 @@ namespace Homework6
             }
         }
 
-        new public string BulbColorSelect(int i) {
-            string currentBulbColor = "";
-            int count = Enum.GetValues(typeof(Colors)).Length;
-            int rest = i % count;
-
-            foreach (int j in Enum.GetValues(typeof(Colors)))
-            {
-                if (j == rest) 
-                {
-                    currentBulbColor = Enum.GetName(typeof(Colors),rest);
-                    break;
-                }
-            }
-
-            return currentBulbColor;
-        }
-
-
         //protected override ColourBulb[] BuildGarland(int bulbCount)
         //{
         //    return new ColourBulb[bulbCount];
         //}
-
-        public void SetLampState () 
-        {
-            for (int i = 0; i < Garland.Length; i++) 
-            {
-                Garland[i].LampState = GetLampState(i);
-            }
-        }
     }
 }

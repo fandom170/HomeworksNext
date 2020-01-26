@@ -49,6 +49,7 @@
     <Compile Include="ColourLei.cs" />
     <Compile Include="Colours.cs" />
     <Compile Include="DataValiadation.cs" />
+    <Compile Include="LampStates.cs" />
     <Compile Include="Lei.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

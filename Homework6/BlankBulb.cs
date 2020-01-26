@@ -6,30 +6,19 @@ using System.Threading.Tasks;
 
 namespace Homework6
 {
-    public class BlankBulb
+    public class BlankBulb 
     {
-        private Boolean _lampState;
-        private string _lampColour = "WHITE";
-        private string _stringLampState;
-
-        public Boolean LampState 
-        {
-            get { return _lampState; }
-            set 
-            { 
-                _lampState = value; 
-                _stringLampState = value? "on" : "off";
+        private string _bulbColor = Colors.WHITE.ToString(); //values has been added for consistency only and is used in ColorBulb class
+        private LampStates _enumLampState;
+       
+        public LampStates EnumLampState
+            {
+                get {return _enumLampState;}
+                set {_enumLampState = value;}
             }
-        }
-
-        public string LampColour 
+        public string BulbColor 
         {
-            get { return _lampColour; }
-        }
-
-        public string StringLampState 
-        {
-            get {return _stringLampState;}
+            get {return _bulbColor;}
         }
     }
 }

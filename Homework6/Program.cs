@@ -10,8 +10,6 @@ namespace Homework6
     {
         static void Main(string[] args)
         {
-            var bulb = new BlankBulb();
-            bulb.LampState = true;
             string colour;
             string type;
  
@@ -19,40 +17,38 @@ namespace Homework6
             Console.WriteLine("Entering of any other value will lead to stop  of program execution");
             DataValiadation dv = new DataValiadation();
             type = Console.ReadLine().ToLower();
-
+            Console.Clear();
+            
             if (type.Equals("both"))
             {
-                colour = "Colour";
+                colour = "Color";
                 ColourLei  leiColour = new ColourLei(dv.GetLeiLength(colour));
-                //leiColour.SetState();
-                //leiColour.PrintGarland("Color");
-
-                Console.WriteLine("Printing completed");
+                leiColour.SetLampState();
+                leiColour.PrintGarland(colour);
 
                 colour = "Blank";
                 BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
-
-                Console.Clear();
-                leiColour.GetState();
-                //leiBlank.GetState();
+                leiBlank.SetLampState();
+                leiBlank.PrintGarland(colour);
             }
-            /*else if (type.Equals("blank"))
+            else if (type.Equals("blank"))
             {
                 colour = "Blank";
                 Console.Clear();
                 BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
-                leiBlank.GetState();
+                leiBlank.SetLampState();
+                leiBlank.PrintGarland(colour);
             }
             else if (type.Equals("color"))
             {
                 Console.Clear();
                 colour = "Colour";
                 ColourLei leiColour = new ColourLei(dv.GetLeiLength(colour));
-                leiColour.GetState();
-            }*/
+                leiColour.SetLampState();
+                leiColour.PrintGarland(colour); ;
+            }
             else
             {
-                //ColourLei cl = new Lei<ColourLei>(dv.GetLeiLength(colour));
                 Environment.Exit(-1);
             }
         }

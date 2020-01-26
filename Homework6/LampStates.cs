@@ -2,9 +2,9 @@
 
 namespace Homework6
 {
-	enum LampStates
+	public enum LampStates
 	{
-	     ON = true,
-		 OFF = false
+		OFF = 0,
+		ON = 1
 	}
 }
