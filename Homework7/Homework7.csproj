@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Country.cs" />
     <Compile Include="DictionaryWorks.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
