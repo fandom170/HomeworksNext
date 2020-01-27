@@ -10,6 +10,14 @@ namespace Homework8
     {
         static void Main(string[] args)
         {
+
+            List<Order> orders = new List<Order>();
+            List<Shipment> shipments = new List<Shipment>();
+            List<Customer> customers = new List<Customer>();
+
+
+
+            string jsonString = orders.ToJSON();
         }
     }
 }
