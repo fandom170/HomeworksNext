@@ -9,68 +9,39 @@ namespace Homework6
     class ColourLei : Lei<ColourBulb>
     {
 
-        public ColourLei (int bulbCount)
+        public ColourLei(int bulbCount)
         {
-            /*
-            for(int i = 0; i < Garland.Length; i++)
-            {
-                Garland[i].BulbColour = ()
-            }*/
-
             this.BulbCount = bulbCount;
-            Garland = new ColourBulb[bulbCount];
-            //Garland = BuildGarland(bulbCount);
+            Garland = new List<ColourBulb>(bulbCount);
             for (int i = 0; i < bulbCount; i++)
             {
-                string colour = BulbColorSelect(i);
-                Garland[i] = new ColourBulb(colour);
+                Colors colour = BulbColorSelect(i);
+                Garland.Add(new ColourBulb(colour));
             }
         }
 
-        /*new public void GetState ()
+        public void GetColor(int i, Boolean state)
         {
-            
-            string state = "";
-            Boolean minutes = GetCurrentMinutesState();
-            for (int i = 0; i < Garland.Length; i++)
+            if (state)
             {
-                if (minutes ^ (i % 2 == 0))
+                switch (Garland[i].BulbColor)
                 {
-                    state = "on";
-                }
-                else
-                {
-                    state = "off";
-                }
-
-                GetColor(i, state);
-                Console.WriteLine("Color garland lamp #{0} is turned {1} and {2} now.\n", (i + 1), Garland[i].BulbColour , state);
-                Console.ResetColor();
-            }
-        }*/
-
-        public void GetColor (int i, Boolean state)
-        {
-            if(state.Equals(true))
-            {
-                switch (Garland[i].BulbColour.ToString())
-                {
-                    case "RED":
+                    case Colors.RED:
                         Console.ForegroundColor = ConsoleColor.Red;
                         break;
-                    case "YELLOW":
+                    case Colors.YELLOW:
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         break;
-                    case "GREEN":
+                    case Colors.GREEN:
                         Console.ForegroundColor = ConsoleColor.Green;
                         break;
-                    case "BLUE":
+                    case Colors.BLUE:
                         Console.ForegroundColor = ConsoleColor.Blue;
                         break;
-                    case "PURPLE":
+                    case Colors.PURPLE:
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         break;
-                    case "CYAN":
+                    case Colors.CYAN:
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         break;
                     default:
@@ -84,37 +55,12 @@ namespace Homework6
             }
         }
 
-        public string BulbColorSelect(int i) {
-            string currentBulbColor = "";
+        public Colors BulbColorSelect(int i)
+        {
             int count = Enum.GetValues(typeof(Colors)).Length;
-            int rest = i % count;
-            Colors c = (Colors)(i % count);
 
-            foreach (int j in Enum.GetValues(typeof(Colors)))
-            {
-                if (j == rest) 
-                {
-                    currentBulbColor = Enum.GetName(typeof(Colors),rest);
-                    break;
-                }
-            }
-
-            return currentBulbColor;
+            return (Colors)(i % count);
         }
 
-
-        //protected override ColourBulb[] BuildGarland(int bulbCount)
-        //{
-        //    return new ColourBulb[bulbCount];
-        //}
-
-        //SetLampState();
-        /*public void SetLampState () 
-        {
-            for (int i = 0; i < Garland.Length; i++) 
-            {
-                
-            }
-        }*/
     }
 }

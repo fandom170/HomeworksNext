@@ -11,16 +11,11 @@ namespace Homework6
         public BlankLei(int bulbCount)         
         {
             this.BulbCount = bulbCount;
-            Garland  = new BlankBulb[BulbCount];
+            Garland  = new List<BlankBulb>();
             for (int i = 0; i < bulbCount; i++)
             {
-                Garland[i] = new BlankBulb();
+                Garland.Add(new BlankBulb());
             }
         }
-
-        //protected override BlankBulb[] BuildGarland(int bulbCount)
-        //{
-        //    return new BlankBulb[bulbCount];
-        //}
-    }
+   }
 }

@@ -8,11 +8,9 @@ namespace Homework6
 {
     public class ColourBulb : BlankBulb
     {
-        public string BulbColour {get; set;}
-
-        public ColourBulb(string colour) 
+        public ColourBulb(Colors colour) 
         {
-            this.BulbColour = colour;
+            BulbColor = colour;
         }
 
     }

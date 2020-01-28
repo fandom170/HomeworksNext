@@ -8,33 +8,7 @@ namespace Homework6
 {
     public class BlankBulb
     {
-        private int _lampState;
-        
-        private string _bulbColor = "";
-
-        private LampStates _enumLampState;
-        
-        
-        
-        public LampStates EnumLampState
-            {
-                get {return _enumLampState;}
-                set {_enumLampState = value;}
-            }
-        
-        public string BulbColor 
-        {
-            get {return _bulbColor;}
-        }
-
-        public int LampState 
-        {
-            get { return _lampState; }
-            set 
-            { 
-                _lampState = value;
-            }
-        }
-
+        public LampStates EnumLampState { get; set; }
+        public Colors BulbColor { get; set; } = Colors.WHITE;
     }
 }

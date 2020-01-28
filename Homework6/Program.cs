@@ -23,7 +23,7 @@ namespace Homework6
                 colour = "Color";
                 ColourLei  leiColour = new ColourLei(dv.GetLeiLength(colour));
                 leiColour.SetLampState(leiColour.Garland);
-                leiColour.printGarland(colour);
+                leiColour.PrintGarland(colour);
 
                 colour = "Blank";
                 BlankLei leiBlank = new BlankLei(dv.GetLeiLength(colour));
