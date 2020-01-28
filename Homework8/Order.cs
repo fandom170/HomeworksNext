@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework8
 {
-    class Order : Item<int>
+    public class Order : Item<int>
     {
         private int _goodsAmount;
         private string _goodType;

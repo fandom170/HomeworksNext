@@ -15,7 +15,7 @@ namespace Homework8
             List<Shipment> shipments = new List<Shipment>();
             List<Customer> customers = new List<Customer>();
 
-
+            Invoice inv = new Invoice();
 
             string jsonString = orders.ToJSON();
         }

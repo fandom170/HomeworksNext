@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Homework8
 {
-    class JSONClass
+    public class Invoice
     {
-        public Shipment [] shipments { get; set; }
+
+        [JsonProperty("shipments")]
+        public Shipment [] Shipments { get; set; }
         public string shipmentId { get; set; }
         public string address { get; set;}
-        public Order[] orders { get; set;}
         public Guid customer { get; set; }
         public int id { get; set; }
         public string type { get; set;}

@@ -20,9 +20,20 @@ namespace Homework6
             }
         }
 
-        public void GetColor(int i, Boolean state)
+        new public void PrintGarland(String type)
         {
-            if (state)
+            for (int i = 0; i < Garland.Count; i++)
+            {
+                GetColor(i, Garland[i].EnumLampState);
+                Console.WriteLine("{0} garland {1} lamp #{2} is turned {2} now",
+                    type, Garland[i].BulbColor,
+                    Garland[i].EnumLampState);
+            }
+        }
+
+        public void GetColor(int i, LampStates state)
+        {
+            if (state == LampStates.ON)
             {
                 switch (Garland[i].BulbColor)
                 {
