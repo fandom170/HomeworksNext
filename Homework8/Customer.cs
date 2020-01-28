@@ -10,5 +10,16 @@ namespace Homework8
     {
         private string _customerName;
 
+        public Customer(String name) 
+        {
+            this.Id = new Guid();
+            this._customerName = name;
+        }
+
+        public string CustomerName 
+        { 
+            get { return _customerName; }
+        }
+
     }
 }
