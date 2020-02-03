@@ -48,20 +48,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="DataEntering.cs" />
     <Compile Include="FileHelpers.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Invoice.cs" />
-    <Compile Include="JsonProcessing.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="PrintOrders.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shipment.cs" />
     <Compile Include="xml_processing.cs" />
+    <Compile Include="_helpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="ShipmentData.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

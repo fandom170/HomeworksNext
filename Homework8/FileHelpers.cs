@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,12 +12,15 @@ namespace Homework8
 {
     class FileHelpers
     {
-        private string _address = "HomeWork8.";
+        private string _path = "C:\\Users\\ПК\\source\\repos\\HomeworksNext\\Homework8\\ShipmentData.json";
 
 
-        public void WriteFile(String dataString, string fileExtension) 
+        
+        
+        
+        public void WriteFile(String dataString)//, string fileExtension) 
         {
-            string fileName = _address + fileExtension;
+            string fileName = _path;// + fileExtension;
 
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(@fileName))
                 {
@@ -34,9 +39,17 @@ namespace Homework8
         public string ReadJsonFile () 
         {
             string dataString = "";
-            
-            
-            return dataString;
+            using (StreamReader file = File.OpenText(_path))
+            {
+                using (JsonTextReader reader = new JsonTextReader(file))
+                {
+                    JObject readJson = (JObject)JToken.ReadFrom(reader);
+                    dataString = readJson.ToString();
+                }
+            }
+
+
+                return dataString;
         }
 
         /*JSON file structure
@@ -67,7 +80,7 @@ namespace Homework8
         public string ReadXmlFile() 
         {
             string dataString = "";
-            string fileName = _address + ".xml";
+            string fileName = _path + ".xml";
 
             using (XmlReader reader = XmlReader.Create(@fileName)) 
             {
@@ -85,7 +98,7 @@ namespace Homework8
 
         public void PrintShipment(String shipmentName, string fileType, Boolean printOrders) 
         {
-            string fileName = _address + fileType;
+            string fileName = _path + fileType;
             string dataString;
             if (fileType.Equals("xml"))
             {
@@ -118,4 +131,39 @@ namespace Homework8
         </shipments>
          */
     }
+
+    /*private SortedDictionary<Guid, Country> ReadFile()
+    {
+        SortedDictionary<Guid, Country> readFileData = new SortedDictionary<Guid, Country>();
+
+        using (StreamReader csvReader = new StreamReader(File.OpenRead(_csvPath)))
+        {
+            while (!csvReader.EndOfStream)
+            {
+                string docLine;
+                //reading of several times have to be added
+                try
+                {
+                    docLine = csvReader.ReadLine();
+                    if (docLine.Equals("") || docLine.Equals(" "))
+                    {
+                        break;
+                    }
+                    string[] line = docLine.Trim().Split(',');
+                    readFileData.Add(Guid.NewGuid(), new Country()
+                    {
+                        name = line[0],
+                        telenorSupported = bool.Parse(line[1])
+                    });
+                }
+                catch (IOException)
+                {
+                    Console.WriteLine("Read file IO Exception");
+                    Environment.Exit(-1);
+                }
+            }
+        }
+
+        return readFileData;
+    }*/
 }
