@@ -1,5 +1,5 @@
 {
-  "Shipments": [
+  "shipments": [
     {
       "shipment": "Init1600",
       "Name": "Init_Data_01",
@@ -9,19 +9,26 @@
           "order": 0,
           "qty": 10,
           "type": "Bomb",
-          "CustomerId": "a5efe687-b50d-466a-8ba9-65e90f91b90b"
-        },
+          "customer": {
+            "CustomerId": "5ec590e7-480e-43d9-9f2e-ab004c5df277",
+            "Customer": "test"
+          }
+        }
+      ]
+    },
+    {
+      "shipment": "Init1600",
+      "Name": "Init_Data_01",
+      "Adress": "1600_Pennsylvania_Avenue",
+      "Orders": [
         {
-          "order": 1,
-          "qty": 2,
-          "type": "one more bomb",
-          "CustomerId": "a5efe687-b50d-466a-8ba9-65e90f91b90b"
-        },
-        {
-          "order": 2,
-          "qty": 8,
-          "type": "kittens",
-          "CustomerId": "fe85bdd5-40b1-4b9d-8581-1177defe8309"
+          "order": 0,
+          "qty": 10,
+          "type": "Bomb",
+          "customer": {
+            "CustomerId": "4ada7545-99df-4a0b-82e6-ab186200c0aa",
+            "Customer": "test"
+          }
         }
       ]
     }

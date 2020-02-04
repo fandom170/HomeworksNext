@@ -9,8 +9,7 @@ namespace Homework8
 {
     public class Invoice
     {
-
-        [JsonProperty("Shipments")]
+        [JsonProperty(PropertyName = "shipments")]
         public List <Shipment> Shipments { get; set; }
     }
 }
