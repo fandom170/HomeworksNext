@@ -9,5 +9,6 @@ namespace Homework8
     public static class _helpers
     {
         public static int OrderNumber = 0;
+        
     }
 }

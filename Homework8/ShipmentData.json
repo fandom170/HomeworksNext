@@ -1,36 +1,187 @@
 {
   "shipments": [
     {
-      "shipment": "Init1600",
-      "Name": "Init_Data_01",
-      "Adress": "1600_Pennsylvania_Avenue",
-      "Orders": [
+      "shipmentId": "Init1600",
+      "shipmentName": "Init_Data_01",
+      "shipmentAddress": "1600_Pennsylvania_Avenue",
+      "ordersList": [
         {
-          "order": 0,
-          "qty": 10,
-          "type": "Bomb",
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb",
           "customer": {
-            "CustomerId": "5ec590e7-480e-43d9-9f2e-ab004c5df277",
-            "Customer": "test"
+            "customerId": "9e7199f2-1c0e-487c-a7a8-b9c4601e455a",
+            "customerName": "test"
           }
         }
       ]
     },
     {
-      "shipment": "Init1600",
-      "Name": "Init_Data_01",
-      "Adress": "1600_Pennsylvania_Avenue",
-      "Orders": [
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
         {
-          "order": 0,
-          "qty": 10,
-          "type": "Bomb",
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
           "customer": {
-            "CustomerId": "4ada7545-99df-4a0b-82e6-ab186200c0aa",
-            "Customer": "test"
+            "customerId": "a649fd71-ea0b-478e-bac3-39db3c5df7c7",
+            "customerName": "test01"
           }
         }
       ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "acdea9fd-55d9-4290-8f36-de03f4ce62e1",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "cd37198a-d9b3-4b66-9a7e-bc72a92f53c7",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "db1ff69c-8b8a-49bd-869e-178e76045ccf",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "e1e93a30-f3ae-41f6-9f0b-3ed596720e14",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "1dccbec6-dcb0-40ca-86bf-bfaf5431166e",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "25e29914-ead0-4190-a29e-bc8b13a6d4d6",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "d5b651be-4b98-45e6-ba14-32a9dacb93c9",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 10,
+          "productType": "Bomb01",
+          "customer": {
+            "customerId": "1753f549-429c-4941-ae58-203f94064066",
+            "customerName": "test01"
+          }
+        }
+      ]
+    },
+    {
+      "shipmentId": "Init1601",
+      "shipmentName": "Init_Data_02",
+      "shipmentAddress": "1601_Pennsylvania_Avenue",
+      "ordersList": [
+        {
+          "orderId": 0,
+          "productQuantity": 6,
+          "productType": "kittens",
+          "customer": {
+            "customerId": "ed9cf419-e5d5-4f25-b031-20dd1ac341c9",
+            "customerName": "test03"
+          }
+        },
+        {
+          "orderId": 1,
+          "productQuantity": 4,
+          "productType": "More kittens",
+          "customer": null
+        }
+      ]
     }
+    
   ]
 }

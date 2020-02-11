@@ -9,6 +9,15 @@ namespace Homework8
 {
     public class Invoice
     {
+
+        public void PrintInvoice(Boolean printShipments = true) 
+        {
+            foreach (Shipment shipment in Shipments) 
+            {
+                shipment.PrintShipment(printShipments);
+            }
+        }
+        
         [JsonProperty(PropertyName = "shipments")]
         public List <Shipment> Shipments { get; set; }
     }

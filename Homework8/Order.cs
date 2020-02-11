@@ -9,14 +9,22 @@ namespace Homework8
 {
     public class Order     {
 
-        [JsonProperty(PropertyName = "order")]
+        public void PrintOrder() 
+        {
+            Console.WriteLine("Order Id is = {0}", this.OrderId);
+            Console.WriteLine("Amount of product is = {0}", this.Quantity);
+            Console.WriteLine("Name of product is = {0}", this.Type);
+            this.Customer.PrintCustomer();
+        }
         
-        public int orderId { get; set; }
-        public int qty { get; set; }
-        public string type { get; set; }
-        public Customer customer { get; set; }
-
+        
+        [JsonProperty(PropertyName = "orderId")]
+        public int OrderId { get; set; }
+        [JsonProperty(PropertyName = "productQuantity")]
+        public int Quantity { get; set; }
+        [JsonProperty(PropertyName = "productType")]
+        public string Type { get; set; }
+        [JsonProperty(PropertyName = "customer")]
+        public Customer Customer { get; set; }
     }
-
-    
 }
