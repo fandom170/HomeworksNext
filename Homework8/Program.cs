@@ -29,7 +29,6 @@ namespace Homework8
             order1.OrderId = _helpers.OrderNumber++;
             order1.Type = "kittens";
             order1.Quantity = 6;
-            //Console.WriteLine(cust1.CustomerName + " " + cust1.CustomerId);
             order1.Customer = cust1;
 
             Order order2 = new Order();
@@ -38,7 +37,6 @@ namespace Homework8
             order2.Quantity = 4;
             order2.Customer = cust1;
 
-
             orders.Add(order1);
             orders.Add(order2);
 
@@ -46,11 +44,9 @@ namespace Homework8
             ship1.Name = "Init_Data_02";
             ship1.Adress = "1601_Pennsylvania_Avenue";
             ship1.Id = ship1.Name.Substring(0, 4) + ship1.Adress.Substring(0, 4);
-
             ship1.Orders = orders;
-
             List<Shipment> shipmentList = new List<Shipment>();
-            
+            shipmentList.Add(ship1);
             //data processing
             
             string jsonString = "";
@@ -61,10 +57,14 @@ namespace Homework8
             invoice.Shipments.Add(ship1);
 
             jsonString = JsonConvert.SerializeObject(invoice, Formatting.Indented);
-            
-            fileHelpers.WriteFile(jsonString);
 
-            String xmlString = fileHelpers.ReadXmlFile();
+            //fileHelpers.WriteFile(jsonString);
+
+            Invoice invoiceXML = fileHelpers.readXMLInvoice();
+
+            fileHelpers.CreateXMLInvoice(invoiceXML);
+
+
 
         }
     }

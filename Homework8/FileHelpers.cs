@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace Homework8
 {
@@ -13,17 +14,9 @@ namespace Homework8
         private string _jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ShipmentData.json");
         private string _xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ShipmentData.xml");
 
-        public void WriteFile(String dataString, string fileExtension = "json")
+        public void WriteJsonFile(String dataString)
         {
-            string fileName;
-            if (fileExtension.Equals("json"))
-            {
-                fileName = _jsonPath;// + fileExtension;
-            }
-            else
-            {
-                fileName = _xmlPath;
-            }
+            string fileName = _jsonPath;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@fileName))
             {
@@ -62,20 +55,68 @@ namespace Homework8
             return invoice;
         }
 
-        public string ReadXmlFile()
+        public void CreateXMLInvoice (Invoice invoice) 
         {
-            string resultXml;
-            XDocument xDoc = XDocument.Load(_xmlPath);
-            resultXml = xDoc.Root.ToString();
-            Console.WriteLine(resultXml);
-            return resultXml;
+            String path = _xmlPath;
+            XmlSerializer serializer = new XmlSerializer(typeof(Invoice));
+            TextWriter writer = new StreamWriter(path);
+            serializer.Serialize(writer, invoice);
+            writer.Close();
         }
 
-        public XmlDocument StringToXml(string dataString) 
+        public Invoice readXMLInvoice() 
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(dataString);
-            return xmlDoc;
+            String path = _xmlPath;
+            XmlSerializer serializer = new XmlSerializer(typeof(Invoice));
+            serializer.UnknownNode += new
+            XmlNodeEventHandler(serializer_UnknownNode);
+            serializer.UnknownAttribute += new
+            XmlAttributeEventHandler(serializer_UnknownAttribute);
+
+            
+            FileStream fs = new FileStream(path, FileMode.Open);
+            Invoice invoice = null;
+            try
+            {
+                invoice = (Invoice)serializer.Deserialize(fs);
+                Console.WriteLine("Invoice data should be here");
+            }
+            catch (IOException) 
+            { 
+                Console.WriteLine("Some problems with file reading"); 
+            }
+            List <Shipment> shipments = invoice.Shipments;
+            foreach (Shipment shipment in shipments) 
+            {
+                Console.WriteLine(shipment.Id);
+                Console.WriteLine(shipment.Name);
+                Console.WriteLine(shipment.Adress);
+                List<Order> orderList = shipment.Orders;
+                foreach (Order order in orderList) 
+                {
+                    Console.WriteLine(order.OrderId);
+                    Console.WriteLine(order.Quantity);
+                    Console.WriteLine(order.Type);
+                    Customer customer = order.Customer;
+                    Console.WriteLine(customer.CustomerId);
+                    Console.WriteLine(customer.CustomerName);
+                }
+            }
+            fs.Close();
+            return invoice;
+            
+        }
+
+        protected void serializer_UnknownNode (object sender, XmlNodeEventArgs e)
+        {
+            Console.WriteLine("Unknown Node:" + e.Name + "\t" + e.Text);
+        }
+
+        protected void serializer_UnknownAttribute (object sender, XmlAttributeEventArgs e)
+        {
+            System.Xml.XmlAttribute attr = e.Attr;
+            Console.WriteLine("Unknown attribute " +
+            attr.Name + "='" + attr.Value + "'");
         }
     }
 }

@@ -1,15 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<shipments>
-  <shipmentId>Init1600</shipmentId>
-  <shipmentName>Init_Data_01</shipmentName>
-  <shipmentAddress>1600_Pennsylvania_Avenue</shipmentAddress>
-  <ordersList>
-    <orderId>0</orderId>
-    <productQuantity>10</productQuantity>
-    <productType>Bomb</productType>
-    <customer>
-      <customerId>9e7199f2-1c0e-487c-a7a8-b9c4601e455a</customerId>
-      <customerName>test</customerName>
-    </customer>
-  </ordersList>
-</shipments> 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Shipments>
+    <Shipment>
+      <Id>Init1600</Id>
+      <Name>Init_Data_01</Name>
+      <Adress>1600_Pennsylvania_Avenue</Adress>
+      <Orders>
+        <Order>
+          <OrderId>0</OrderId>
+          <Quantity>10</Quantity>
+          <Type>Bomb</Type>
+          <Customer>
+            <CustomerId>9e7199f2-1c0e-487c-a7a8-b9c4601e455a</CustomerId>
+            <CustomerName>test</CustomerName>
+          </Customer>
+        </Order>
+      </Orders>
+    </Shipment>
+  </Shipments>
+</Invoice>
